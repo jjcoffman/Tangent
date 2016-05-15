@@ -34,4 +34,3 @@ public class framer extends JFrame
 	}
 }
 
-private 
