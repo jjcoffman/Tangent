@@ -1,4 +1,5 @@
 package Operations;
+import UI.framer;
 
 public class Starter 
 {
@@ -9,6 +10,8 @@ public class Starter
 	 */
 	public static void main(String[] args) 
 	{
-		//TODO
+		framer frame = framer.getFramer();
+		
 	}
+	
 }
