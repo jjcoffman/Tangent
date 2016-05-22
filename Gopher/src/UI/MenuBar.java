@@ -8,6 +8,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 
+import Operations.Links.KasperskyMap;
+
 public class MenuBar extends JMenuBar
 {
 	
@@ -63,7 +65,8 @@ public class MenuBar extends JMenuBar
 		JMenu mnResources = new JMenu("Resources");
 		this.add(mnResources);
 		
-		JMenuItem mnLink = new JMenuItem("Link 1");
+		JMenuItem mnLink = new JMenuItem("Kaspersky");
+		mnLink.addActionListener(new KasperskyMap());
 		mnResources.add(mnLink);
 	}
 	

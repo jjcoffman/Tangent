@@ -8,7 +8,7 @@ import java.lang.ProcessBuilder.Redirect;
  * through a system CLI. Also captures STDOUT and displays within the Java Console.
  * @author Jonathan Coffman
  */
-class Execute 
+public class Execute 
 {
 
 	private static Execute execute;
@@ -19,7 +19,7 @@ class Execute
 	 * @return Execute
 	 * @author Jonathan Coffman
 	 */
-	static Execute getExecute()
+	public static Execute getExecute()
 	{
 		if(execute == null)
 			execute = new Execute();
@@ -31,7 +31,7 @@ class Execute
 	 * redirects the systems stdout to the java console
 	 * @author Jonathan Coffman
 	 */
-	void exec(String[] command)
+	public void exec(String[] command)
 	{
 		try {
 			ProcessBuilder pb = new ProcessBuilder(command);
