@@ -23,10 +23,10 @@ public class KasperskyMap extends AbstractAction implements Link
 	@Override
 	public boolean runCommand() 
 	{
-		//if(System.getProperty("os.name").matches("Mac OS"))
+		if(System.getProperty("os.name").matches("Mac OS X"))
 			return macExec();
-		//else		
-			//return winExec();
+		else		
+			return winExec();
 	}
 
 
