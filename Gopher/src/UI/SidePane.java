@@ -1,7 +1,9 @@
 package UI;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import java.awt.Color;
 import java.awt.FlowLayout;
 
 public class SidePane extends JPanel
@@ -13,6 +15,7 @@ public class SidePane extends JPanel
 		super();
 		setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		this.add(new JButton("TEST"));
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
 	
 	}
 	

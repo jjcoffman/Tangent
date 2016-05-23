@@ -7,12 +7,15 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
+import Operations.Links.Link;
 
-import Operations.Links.KasperskyMap;
-
+/**
+ * This builds the menubar that will display all the tools used
+ * @author Jonathan Coffman
+ *
+ */
 public class MenuBar extends JMenuBar
 {
-	
 	private static final long serialVersionUID = 3259550375369862849L;
 
 	public MenuBar()
@@ -65,9 +68,18 @@ public class MenuBar extends JMenuBar
 		JMenu mnResources = new JMenu("Resources");
 		this.add(mnResources);
 		
-		JMenuItem mnLink = new JMenuItem("Kaspersky");
-		mnLink.addActionListener(new KasperskyMap());
-		mnResources.add(mnLink);
+		addMenuItem("Kaspersky", "https://cybermap.kaspersky.com/", mnResources);
+		addMenuItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
+	}
+	
+	public void addMenuItem(String name, String url, JMenu menu)
+	{
+		JMenuItem item = new JMenuItem(name);
+		Link link = new Link();
+		link.setURL(url);
+		item.addActionListener(link);
+		menu.add(item);
+		
 	}
 	
 }

@@ -23,7 +23,8 @@ public class framer extends JFrame
 		super("SMARMY");
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(600, 400);
+		this.setSize(1024, 768);
+		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		
 		
