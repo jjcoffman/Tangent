@@ -1,9 +1,6 @@
 package UI;
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
-
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 
@@ -18,7 +15,7 @@ public class ViewPanel extends JPanel
 		this.setLayout(new BorderLayout());
 		WebViewer browser = new WebViewer(940, 720);
         browser.setVisible(true);
-        browser.loadURL("http://www.bleepingcomputer.com/");
+        browser.loadURL("https://www.reddit.com/r/Technic_News/");
         this.add(browser, BorderLayout.NORTH);
 	}
 }

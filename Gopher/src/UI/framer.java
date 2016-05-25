@@ -2,7 +2,6 @@ package UI;
 
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
-import javax.swing.JPanel;
 import javax.swing.JMenuBar;
 import java.awt.ScrollPane;
 

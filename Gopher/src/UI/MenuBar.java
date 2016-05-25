@@ -2,11 +2,11 @@ package UI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
+import Operations.Download;
 import Operations.Links.Link;
 
 /**
@@ -45,6 +45,7 @@ public class MenuBar extends JMenuBar
 		this.add(mnTools);
 		
 		JMenu mnMalware = new JMenu("Malware");
+		addMenuDownloadItem("MBAM", "https://downloads.malwarebytes.org/file/mbam_current/", mnMalware);
 		mnTools.add(mnMalware);
 		
 		JMenu mnWindows = new JMenu("Windows");
@@ -68,11 +69,32 @@ public class MenuBar extends JMenuBar
 		JMenu mnResources = new JMenu("Resources");
 		this.add(mnResources);
 		
-		addMenuItem("Kaspersky", "https://cybermap.kaspersky.com/", mnResources);
-		addMenuItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
+		addMenuLinkItem("Kaspersky", "https://cybermap.kaspersky.com/", mnResources);
+		addMenuLinkItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
 	}
 	
-	public void addMenuItem(String name, String url, JMenu menu)
+	/**
+	 * this adds a menu item with is respective name and to the respective menu
+	 * @param name
+	 * @param url
+	 * @param menu
+	 */
+	private void addMenuDownloadItem(String name, String url, JMenu menu) 
+	{
+		JMenuItem item = new JMenuItem(name);
+		Download down = new Download(name, url);
+		item.addActionListener(down);
+		menu.add(item);
+		
+	}
+
+	/**
+	 * this adds Link items to the resources menu
+	 * @param name
+	 * @param url
+	 * @param menu
+	 */
+	public void addMenuLinkItem(String name, String url, JMenu menu)
 	{
 		JMenuItem item = new JMenuItem(name);
 		Link link = new Link();

@@ -59,25 +59,6 @@ public class WebViewer extends JPanel {
 						});
 					}
 				});
-
-				/*engine.getLoadWorker().exceptionProperty().addListener(new ChangeListener<Throwable>() {
-					public void changed(ObservableValue<? extends Throwable> o, Throwable old, final Throwable value) {
-						if (engine.getLoadWorker().getState() == FAILED) {
-							SwingUtilities.invokeLater(new Runnable() {
-								@Override public void run() {
-									JOptionPane.showMessageDialog(
-											panel,
-											(value != null) ?
-													engine.getLocation() + "\n" + value.getMessage() :
-														engine.getLocation() + "\nUnexpected error.",
-														"Loading error...",
-														JOptionPane.ERROR_MESSAGE);
-								}
-							});
-						}
-					}
-				});*/
-
 				jfxPanel.setScene(new Scene(view));
 			}
 		});

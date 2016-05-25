@@ -3,6 +3,9 @@ package UI;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import Operations.ScriptAction;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 
@@ -14,9 +17,18 @@ public class SidePane extends JPanel
 	{
 		super();
 		setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		this.add(new JButton("TEST"));
+		addButton("Ripper", "---------PATH--------");
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 	
+	}
+
+	private void addButton(String name, String path) 
+	{
+		JButton button = new JButton(name);
+		ScriptAction action = new ScriptAction(path);
+		button.addActionListener(action);
+		this.add(button);
+		
 	}
 	
 }

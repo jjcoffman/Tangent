@@ -10,8 +10,8 @@ public class Starter
 	 */
 	public static void main(String[] args) 
 	{
+		@SuppressWarnings("unused")
 		framer frame = framer.getFramer();
 		
-	}
-	
+	}	
 }
