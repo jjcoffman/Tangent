@@ -98,7 +98,7 @@ public class MenuBar extends JMenuBar
 		this.add(mnShortcuts);
 		AddShortcut("Control Panel" , new String[]{"control.exe"});
 		AddShortcut("System Info" , new String[]{"msinfo32"});
-		AddShortcut("Device Manager" , new String[]{"devmgmt.msc"});
+		AddShortcut("Device Manager" , new String[]{"cmd /c start " + "devmgmt.msc"});
 		AddShortcut("Windows Update" , new String[]{"wuapp"});
 		AddShortcut("Task Manager" , new String[]{"taskmgr"});
 		AddShortcut("Event Viewer" , new String[]{"eventvwr"});
