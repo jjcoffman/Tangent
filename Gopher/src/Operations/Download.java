@@ -33,8 +33,10 @@ public class Download extends AbstractAction
 			System.out.println("Downloading file...");
 			URL website;
 			website = new URL(url);
+			File file = new File(home + name);
+			
 			ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-			FileOutputStream fos = new FileOutputStream(new File(home + name + ".exe"));
+			FileOutputStream fos = new FileOutputStream(file);
 			fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
 			fos.close();
 			}

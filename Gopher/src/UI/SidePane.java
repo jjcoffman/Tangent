@@ -4,7 +4,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import Operations.ScriptAction;
+import Operations.Scripts.ScriptAction;
 
 import java.awt.Color;
 import java.awt.FlowLayout;

@@ -19,7 +19,7 @@ public class framer extends JFrame
 	
 	private framer()
 	{
-		super("SMARMY");
+		super("Liquid Gopher");
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(1024, 768);

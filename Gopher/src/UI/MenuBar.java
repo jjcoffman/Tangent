@@ -2,11 +2,14 @@ package UI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import Operations.Download;
+import Operations.Shortcut;
+import Operations.SystemInfo;
 import Operations.Links.Link;
 
 /**
@@ -17,72 +20,114 @@ import Operations.Links.Link;
 public class MenuBar extends JMenuBar
 {
 	private static final long serialVersionUID = 3259550375369862849L;
-
+	JMenu mnFile = new JMenu("File");
+	JMenuItem mntmAbout = new JMenuItem("About");
+	JSeparator separator = new JSeparator();
+	JMenuItem mntmSetPreferences = new JMenuItem("Preferences..");
+	JMenuItem mntmQuit = new JMenuItem("Quit");
+	JMenu mnTools = new JMenu("Tools");
+	JMenu mnScripts = new JMenu("Scripts");
+	JMenu mnResources = new JMenu("Resources");
+	JMenu mnShortcuts = new JMenu("Shortcuts");
+	
 	public MenuBar()
 	{
 		super();
 		
-		JMenu mnFile = new JMenu("File");
 		this.add(mnFile);
 	
-		JMenuItem mntmAbout = new JMenuItem("About");
+		
 		mnFile.add(mntmAbout);
-		
-		JSeparator separator = new JSeparator();
 		mnFile.add(separator);
-		
-		JMenuItem mntmSetPreferences = new JMenuItem("Set Preferences..");
 		mnFile.add(mntmSetPreferences);
 		
-		JSeparator separator_1 = new JSeparator();
-		mnFile.add(separator_1);
+		mnFile.add(separator);
 		
-		JMenuItem mntmQuit = new JMenuItem("Quit");
 		mntmQuit.addActionListener(new ActionListener(){ public void actionPerformed(ActionEvent e) {System.exit(0);}});
 		mnFile.add(mntmQuit);
 		
-		JMenu mnTools = new JMenu("Tools");
 		this.add(mnTools);
+		this.add(mnScripts);
+
+		
+		this.add(mnResources);
+		
+		
+		if(SystemInfo.getInfo().isWindows())
+			winAdd();
+		if(SystemInfo.getInfo().isMac())
+			macAdd();
+		
+	}
+	
+	private void macAdd() 
+	{
+		// TODO Auto-generated method stub
+		addMenuDownloadItem("MBAM", "https://store.malwarebytes.org/342/purl-mbamm-dl", mnTools, "mbam.dmg");
+		
+		//Add Onyx
+		JMenu mnOnyx = new JMenu("Onyx");
+		mnTools.add(mnOnyx);
+		addMenuDownloadItem("10.11", "http://joel.barriere.pagesperso-orange.fr/download/1011/OnyX.dmg", mnOnyx, "Onyx.dmg");
+		addMenuDownloadItem("10.10", "http://www.titanium.free.fr/download/1010/OnyX.dmg", mnOnyx, "Onyx.dmg");
+		addMenuDownloadItem("10.9", "http://www.titanium.free.fr/download/109/OnyX.dmg", mnOnyx, "Onyx.dmg");
+		addMenuDownloadItem("10.8", "http://www.titanium.free.fr/download/108/OnyX.dmg", mnOnyx, "Onyx.dmg");
+		addMenuDownloadItem("10.7", "http://www.titanium.free.fr/download/107/OnyX.dmg", mnOnyx, "Onyx.dmg");
+		
+		addMenuDownloadItem("CCleaner", "https://download.piriform.com/mac/CCMacSetup112.dmg", mnTools, "CCMacSetup112.dmg");
+		
+
+		addMenuLinkItem("Kaspersky Threat Map", "https://cybermap.kaspersky.com/", mnResources);
+		addMenuLinkItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
+		
+	}
+
+	private void winAdd() 
+	{
 		
 		JMenu mnMalware = new JMenu("Malware");
-		addMenuDownloadItem("MBAM", "https://downloads.malwarebytes.org/file/mbam_current/", mnMalware);
 		mnTools.add(mnMalware);
+		addMenuDownloadItem("MBAM", "https://downloads.malwarebytes.org/file/mbam_current/", mnMalware, "mbam.exe");
+		addMenuDownloadItem("MBAR", "https://downloads.malwarebytes.org/file/mbar/", mnMalware, "mbar.zip");
+		addMenuDownloadItem("NPE", "https://liveupdate.symantec.com/upgrade/NPE/1033/NPE.exe", mnMalware, "nrt.zip");
 		
-		JMenu mnWindows = new JMenu("Windows");
-		mnTools.add(mnWindows);
 		
-		JMenu mnMacOs = new JMenu("Mac OS");
-		mnTools.add(mnMacOs);
+		addMenuDownloadItem("CCleaner", "http://download.piriform.com/ccsetup518.exe", mnTools, "ccsetup518.exe");
 		
-		JMenu mnScripts = new JMenu("Scripts");
-		this.add(mnScripts);
 		
-		JMenu mnWindows_1 = new JMenu("Windows");
-		mnScripts.add(mnWindows_1);
-		
-		JMenu mnMac = new JMenu("Mac");
-		mnScripts.add(mnMac);
-		
-		JMenuItem rds = new JMenuItem("RDS");
-		mnWindows_1.add(rds);
-		
-		JMenu mnResources = new JMenu("Resources");
-		this.add(mnResources);
+		this.add(mnShortcuts);
+		AddShortcut("Control Panel" , new String[]{"control.exe"});
+		AddShortcut("System Info" , new String[]{"msinfo32"});
+		AddShortcut("Device Manager" , new String[]{"devmgmt.msc"});
+		AddShortcut("Windows Update" , new String[]{"wuapp"});
+		AddShortcut("Task Manager" , new String[]{"taskmgr"});
+		AddShortcut("Event Viewer" , new String[]{"eventvwr"});
+		AddShortcut("Internet Options" , new String[]{"inetcpl.cpl"});
+		AddShortcut("Restart" , new String[]{"shutdown", "-r", "-t", "00"});		
+		AddShortcut("Shutdown" , new String[]{"shutdown", "-s", "-t", "00"});
 		
 		addMenuLinkItem("Kaspersky", "https://cybermap.kaspersky.com/", mnResources);
 		addMenuLinkItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
 	}
-	
+
+	private void AddShortcut(String name, String[] cmd) 
+	{
+		JMenuItem item = new JMenuItem(name);
+		item.addActionListener(new Shortcut(cmd));
+		mnShortcuts.add(item);
+		
+	}
+
 	/**
 	 * this adds a menu item with is respective name and to the respective menu
 	 * @param name
 	 * @param url
 	 * @param menu
 	 */
-	private void addMenuDownloadItem(String name, String url, JMenu menu) 
+	private void addMenuDownloadItem(String name, String url, JMenu menu, String downloadName) 
 	{
 		JMenuItem item = new JMenuItem(name);
-		Download down = new Download(name, url);
+		Download down = new Download(downloadName, url);
 		item.addActionListener(down);
 		menu.add(item);
 		
