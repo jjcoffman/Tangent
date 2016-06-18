@@ -98,11 +98,11 @@ public class MenuBar extends JMenuBar
 		this.add(mnShortcuts);
 		AddShortcut("Control Panel" , new String[]{"control.exe"});
 		AddShortcut("System Info" , new String[]{"msinfo32"});
-		AddShortcut("Device Manager" , new String[]{"cmd /c start " + "devmgmt.msc"});
+		AddShortcut("Device Manager" , new String[]{"cmd", "/c devmgmt"});
 		AddShortcut("Windows Update" , new String[]{"wuapp"});
 		AddShortcut("Task Manager" , new String[]{"taskmgr"});
 		AddShortcut("Event Viewer" , new String[]{"eventvwr"});
-		AddShortcut("Internet Options" , new String[]{"inetcpl.cpl"});
+		AddShortcut("Internet Options" , new String[]{"cmd", "/c inetcpl.cpl"});
 		AddShortcut("Restart" , new String[]{"shutdown", "-r", "-t", "00"});		
 		AddShortcut("Shutdown" , new String[]{"shutdown", "-s", "-t", "00"});
 		
