@@ -99,7 +99,10 @@ public class MenuBar extends JMenuBar
 		AddShortcut("Control Panel" , new String[]{"control.exe"});
 		AddShortcut("System Info" , new String[]{"msinfo32"});
 		AddShortcut("Device Manager" , new String[]{"cmd", "/c devmgmt"});
-		AddShortcut("Windows Update" , new String[]{"wuapp"});
+		if(!System.getProperty("os.name").matches("Windows 10"))
+			AddShortcut("Windows Update" , new String[]{"wuapp"});
+		//else if(System.getProperty("os.name").matches("Windows 10"))
+		//	AddShortcut("Windows Update" , new String[]{"start","src/win10update.url"});
 		AddShortcut("Task Manager" , new String[]{"taskmgr"});
 		AddShortcut("Event Viewer" , new String[]{"eventvwr"});
 		AddShortcut("Internet Options" , new String[]{"cmd", "/c inetcpl.cpl"});
