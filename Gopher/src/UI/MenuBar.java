@@ -101,16 +101,20 @@ public class MenuBar extends JMenuBar
 		AddShortcut("Device Manager" , new String[]{"cmd", "/c devmgmt"});
 		if(!System.getProperty("os.name").matches("Windows 10"))
 			AddShortcut("Windows Update" , new String[]{"wuapp"});
-		//else if(System.getProperty("os.name").matches("Windows 10"))
-		//	AddShortcut("Windows Update" , new String[]{"start","src/win10update.url"});
+		else if(System.getProperty("os.name").matches("Windows 10"))
+			AddShortcut("Windows Update" , new String[]{"explorer.exe", "ms-settings:windowsupdate"});
 		AddShortcut("Task Manager" , new String[]{"taskmgr"});
 		AddShortcut("Event Viewer" , new String[]{"eventvwr"});
 		AddShortcut("Internet Options" , new String[]{"cmd", "/c inetcpl.cpl"});
+		
+		
 		AddShortcut("Restart" , new String[]{"shutdown", "-r", "-t", "00"});		
 		AddShortcut("Shutdown" , new String[]{"shutdown", "-s", "-t", "00"});
 		
+		addMenuLinkItem("ninite", "https://ninite.com/", mnResources);
 		addMenuLinkItem("Kaspersky", "https://cybermap.kaspersky.com/", mnResources);
 		addMenuLinkItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
+		
 	}
 
 	private void AddShortcut(String name, String[] cmd) 
