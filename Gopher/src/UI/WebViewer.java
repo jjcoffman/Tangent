@@ -48,12 +48,16 @@ public class WebViewer extends JPanel {
 				WebView view = new WebView();
 				engine = view.getEngine();
 
-				engine.titleProperty().addListener(new ChangeListener<String>() {
+				engine.titleProperty().addListener(new ChangeListener<String>()
+				{
 					@Override
-					public void changed(ObservableValue<? extends String> observable, String oldValue, final String newValue) {
-						SwingUtilities.invokeLater(new Runnable() {
+					public void changed(ObservableValue<? extends String> observable, String oldValue, final String newValue)
+					{
+						SwingUtilities.invokeLater(new Runnable()
+						{
 							@Override 
-							public void run() {
+							public void run()
+							{
 								WebViewer.this.setName(newValue);
 							}
 						});

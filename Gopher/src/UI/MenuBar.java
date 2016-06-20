@@ -114,7 +114,7 @@ public class MenuBar extends JMenuBar
 		
 		addMenuLinkItem("ninite", "https://ninite.com/", mnResources);
 		addMenuLinkItem("Kaspersky", "https://cybermap.kaspersky.com/", mnResources);
-		addMenuLinkItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
+		addMenuLinkItem("Norse Attack Map", "http://map.norsecorp.com/", mnResources);
 		addMenuLinkItem("Win10 Media", "http://www.microsoft.com/en-us/software-download/windows10", mnResources);
 		addMenuLinkItem("Win8 Media", "http://www.microsoft.com/en-us/software-download/windows8", mnResources);
 	}

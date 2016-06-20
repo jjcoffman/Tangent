@@ -104,11 +104,11 @@ public class Link extends AbstractAction implements ILink
 	@Override
 	public boolean winExec() 
 	{
-		//start cmd.exe @cmd /k "Command"
 		String[] exec = new String[2];
 		exec[0] = "cmd";
-		exec[1] = "/c iexplore " + URL;
-		//exec[2] = URL;
+		exec[1] = "/c start iexplore \"" + URL + "\"";
+		
+		System.out.println(URL);
 		
 		Execute.getExecute().exec(exec);
 		return true;
