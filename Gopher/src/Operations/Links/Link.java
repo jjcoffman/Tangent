@@ -106,8 +106,9 @@ public class Link extends AbstractAction implements ILink
 	{
 		//start cmd.exe @cmd /k "Command"
 		String[] exec = new String[2];
-		exec[0] = "iexplore.exe";
-		exec[1] = URL;
+		exec[0] = "cmd";
+		exec[1] = "/c iexplore " + URL;
+		//exec[2] = URL;
 		
 		Execute.getExecute().exec(exec);
 		return true;

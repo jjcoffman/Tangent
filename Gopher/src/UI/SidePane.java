@@ -4,7 +4,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import Operations.Scripts.ScriptAction;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -25,8 +24,8 @@ public class SidePane extends JPanel
 	private void addButton(String name, String path) 
 	{
 		JButton button = new JButton(name);
-		ScriptAction action = new ScriptAction(path);
-		button.addActionListener(action);
+		//ScriptAction action = new ScriptAction(path);
+		//button.addActionListener(action);
 		this.add(button);
 		
 	}

@@ -2,7 +2,6 @@ package UI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -106,7 +105,9 @@ public class MenuBar extends JMenuBar
 		AddShortcut("Task Manager" , new String[]{"taskmgr"});
 		AddShortcut("Event Viewer" , new String[]{"eventvwr"});
 		AddShortcut("Internet Options" , new String[]{"cmd", "/c inetcpl.cpl"});
-		
+		AddShortcut("Services", new String[]{"cmd", "/c services.msc"});
+		AddShortcut("MSConfig", new String[]{"cmd", "/c msconfig"});
+		AddShortcut("System Restore", new String[]{"cmd", "/c rstrui.exe"});
 		
 		AddShortcut("Restart" , new String[]{"shutdown", "-r", "-t", "00"});		
 		AddShortcut("Shutdown" , new String[]{"shutdown", "-s", "-t", "00"});
@@ -114,7 +115,8 @@ public class MenuBar extends JMenuBar
 		addMenuLinkItem("ninite", "https://ninite.com/", mnResources);
 		addMenuLinkItem("Kaspersky", "https://cybermap.kaspersky.com/", mnResources);
 		addMenuLinkItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
-		
+		addMenuLinkItem("Win10 Media", "http://www.microsoft.com/en-us/software-download/windows10", mnResources);
+		addMenuLinkItem("Win8 Media", "http://www.microsoft.com/en-us/software-download/windows8", mnResources);
 	}
 
 	private void AddShortcut(String name, String[] cmd) 
