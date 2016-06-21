@@ -29,6 +29,7 @@ public class MenuBar extends JMenuBar
 	JMenu mnResources = new JMenu("Resources");
 	JMenu mnShortcuts = new JMenu("Shortcuts");
 	
+	
 	public MenuBar()
 	{
 		super();
@@ -86,12 +87,19 @@ public class MenuBar extends JMenuBar
 		
 		JMenu mnMalware = new JMenu("Malware");
 		mnTools.add(mnMalware);
-		addMenuDownloadItem("MBAM", "https://downloads.malwarebytes.org/file/mbam_current/", mnMalware, "mbam.exe");
-		addMenuDownloadItem("MBAR", "https://downloads.malwarebytes.org/file/mbar/", mnMalware, "mbar.zip");
-		addMenuDownloadItem("NPE", "https://liveupdate.symantec.com/upgrade/NPE/1033/NPE.exe", mnMalware, "nrt.zip");
+		addMenuDownloadItem("MalwareBytes Anti-Malware", "https://downloads.malwarebytes.org/file/mbam_current/", mnMalware, "mbam.exe");
+		addMenuDownloadItem("MalwareBytes Anti-Rootkit", "https://downloads.malwarebytes.org/file/mbar/", mnMalware, "mbar.zip");
+		addMenuDownloadItem("Norton Power Erasure", "https://liveupdate.symantec.com/upgrade/NPE/1033/NPE.exe", mnMalware, "nrt.zip");
 		
 		
 		addMenuDownloadItem("CCleaner", "http://download.piriform.com/ccsetup518.exe", mnTools, "ccsetup518.exe");
+		addMenuDownloadItem("HWMonitor", "http://download.cpuid.com/hwmonitor/hwmonitor_1.29.exe", mnTools, "hwmonitor_1.29.exe");
+		
+		JMenu mnAVRemovals= new JMenu("AV Removals");
+		mnTools.add(mnAVRemovals);
+		addMenuDownloadItem("Norton Removal Tool", "ftp://ftp.symantec.com/public/english_us_canada/removal_tools/Norton_Removal_Tool.exe", mnAVRemovals, "Norton_Removal_Tool.exe");
+		addMenuDownloadItem("Webroot Removal Tool", "http://download.webroot.com/WRUpgradeTool.exe", mnAVRemovals, "WRUpgradeTool.exe");
+		addMenuDownloadItem("McAfee Removal Tool", "http://us.mcafee.com/apps/supporttools/mcpr/mcpr.asp", mnAVRemovals, "mcpr.exe");
 		
 		
 		this.add(mnShortcuts);
