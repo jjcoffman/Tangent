@@ -49,7 +49,7 @@ public class Link extends AbstractAction implements ILink
 	{
 
 
-		File file = new File(System.getProperty("user.home") + "/Desktop/scriptFile.txt");
+		File file = new File(System.getProperty("user.home") + "/scriptFile.txt");
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
@@ -83,15 +83,16 @@ public class Link extends AbstractAction implements ILink
 		String[] chmod = new String[3];
 		chmod[0] = "chmod";
 		chmod[1] = "+x";
-		chmod[2] = System.getProperty("user.home") + "/Desktop/scriptFile.txt";
+		chmod[2] = System.getProperty("user.home") + "/scriptFile.txt";
 
 		Execute.getExecute().exec(chmod);
 
 		String[] run = new String[1];
-		run[0] = System.getProperty("user.home") + "/Desktop/./scriptFile.txt";
+		run[0] = System.getProperty("user.home") + "/./scriptFile.txt";
 
 
 		Execute.getExecute().exec(run);
+		file.delete();
 		return true;
 
 	}
