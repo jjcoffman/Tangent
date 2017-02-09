@@ -4,19 +4,13 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.JFXPanel;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebView;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import static javafx.concurrent.Worker.State.FAILED;
 
 public class WebViewer extends JPanel {
 

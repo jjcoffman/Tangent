@@ -20,7 +20,7 @@ public class ViewPanel extends JPanel
 		this.setLayout(new BorderLayout());
 		WebViewer browser = new WebViewer(940, 720);
         browser.setVisible(true);
-        browser.loadURL("https://www.reddit.com/r/Technic_News/");  
+        browser.loadURL("https://news.ycombinator.com");  
         this.add(browser, BorderLayout.NORTH);
 	}
 }

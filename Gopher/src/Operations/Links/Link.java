@@ -66,7 +66,7 @@ public class Link extends AbstractAction implements ILink
 		}
 		try {
 			//FileWriter always assumes default encoding is OK!
-			output.write("/Applications/Safari.app/Contents/MacOS/Safari & sleep 1 && osascript -e 'tell application \"Safari\" to open location \""+ URL + "\"'");
+			output.write("osascript -e 'tell application \"Safari\" to open location \""+ URL + "\"'");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

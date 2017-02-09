@@ -77,8 +77,7 @@ public class MenuBar extends JMenuBar
 		addMenuDownloadItem("CCleaner", "https://download.piriform.com/mac/CCMacSetup112.dmg", mnTools, "CCMacSetup112.dmg");
 		
 
-		addMenuLinkItem("Kaspersky Threat Map", "https://cybermap.kaspersky.com/", mnResources);
-		addMenuLinkItem("Norse Attack Map", "http://map.norsecorp.com", mnResources);
+
 		
 	}
 

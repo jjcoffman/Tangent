@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import Operations.SystemInfo;
 
-public class Ripper extends AbstractAction
+public class Ripper extends AbstractAction implements Script
 {
 	private static Ripper ripper;
 	
@@ -21,7 +21,7 @@ public class Ripper extends AbstractAction
 		ripFrame.setVisible(true);
 	}
 	
-	public static Ripper getRipper()
+	public Ripper getScript()
 	{
 		if(ripper == null)
 			ripper = new Ripper();
@@ -34,19 +34,14 @@ public class Ripper extends AbstractAction
 		if(SystemInfo.getInfo().isWindows())
 			winRipper();
 		else if(SystemInfo.getInfo().isMac())
-			macRipper();
+			MacRipper(); 
 		
 	}
 
-	private void macRipper() 
+
+	private void MacRipper() 
 	{
-		/*  TODO
-		 * -Need to workout diagnostics
-		 * -Diskutil repair (can be done during onyx probably)
-		 * -mbam
-		 * -onyx
-		 * 
-		 */
+		// TODO Need to run the automator script
 		
 	}
 
